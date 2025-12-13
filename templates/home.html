@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto mt-10 bg-white p-6 rounded-xl shadow">
+    
+    {% if user.is_authenticated %}
+    <p>Hello dear</p>
+    
+    {% else %}
+    <h2 class="text-2xl font-semibold mb-6 text-center">Login</h2>
+    <form action="{% url 'home' %}" method="POST" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label for="username" class="block text-sm font-medium mb-1">User name</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 focus:border-blue-500 outline-none"
+                placeholder="Enter your Username"
+                required
+            >
+        </div>
+        <div>
+            <label for="password" class="block text-sm font-medium mb-1">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 focus:border-blue-500 outline-none"
+                placeholder="Enter your password"
+                required
+            >
+        </div>
+        <button
+            type="submit"
+            class="w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-900 transition font-medium"
+        >
+            Login
+        </button>
+    </form>
+
+    {% endif %}
+</div>
+
+{% endblock %}
