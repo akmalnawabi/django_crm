@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="text-start p-6 shadow-lg">
+    <h2 class="font-semibold mb-4">Customer Record</h2>
+    <p><strong>ID:</strong> {{ customer_record.id }}</p>
+    <p><strong>First Name:</strong> {{ customer_record.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ customer_record.last_name }}</p>
+    <p><strong>Email:</strong> {{ customer_record.email }}</p>
+    <p><strong>Address:</strong> {{ customer_record.address }}</p>
+    <br>
+    <div>
+        <a href="{% url 'home' %}" class="p-2 border border-gray-100 rounded-lg bg-blue-500 hover:underline">Back</a>
+        <a href="{% url 'delete_record' customer_record.id %}" class="p-2 border border-gray-100 rounded-lg bg-red-500 hover:underline">Delete</a>
+        <a href="{% url 'update_record' customer_record.id %}" class="p-2 border border-gray-100 rounded-lg bg-amber-500 hover:underline">Update</a>
+
+    </div>
+</div>
+{% endblock%}
